@@ -1,166 +1,329 @@
-/* Configurações Gerais - Paleta Agro Real (Terra, Safra e Folhas) */
-* { 
-    box-sizing: border-box; 
-    margin: 0; 
-    padding: 0; 
+/* Cores Vívidas e Variáveis */
+:root {
+    --verde-vibrante: #00cc66;
+    --verde-folha: #1e824c;
+    --verde-escuro: #0b301a;
+    --terra-gradiente: linear-gradient(135deg, #1e824c, #0b301a);
+    --branco-puro: #ffffff;
+    --creme-suave: #f0f7f4;
+    --texto-escuro: #1c2833;
 }
 
-body { 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-    line-height: 1.6; 
-    color: #3d2314; /* Marrom-Solo profundo para textos principais */
-    background-color: #f7f5f0; /* Branco-Algodão (off-white terroso bem suave) */
+/* Configurações Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-/* Banner Principal com Imagem de Campo Aberto */
-header { 
-    background: url('https://unsplash.com') no-repeat center center/cover;
-    position: relative;
-    text-align: center; 
-    padding: 8rem 1rem; 
+body {
+    background-color: var(--branco-puro);
+    color: var(--texto-escuro);
+    overflow-x: hidden;
+    line-height: 1.6;
 }
 
-/* Filtro Verde-Musgo Escuro sobre o banner */
-.header-overlay {
-    background: rgba(30, 52, 34, 0.75); /* Verde fechado das folhas maduras */
-    position: absolute;
+/* Textura Visual de Fundo */
+.textura-overlay {
+    position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(var(--verde-vibrante) 0.5px, transparent 0.5px), radial-gradient(var(--verde-vibrante) 0.5px, var(--branco-puro) 0.5px);
+    background-size: 40px 40px;
+    background-position: 0 0, 20px 20px;
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Menu de Navegação */
+header {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 20px 8px;
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    border-bottom: 4px solid var(--verde-vibrante);
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--verde-escuro);
+    transform: scale(1);
+    transition: transform 0.3s;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logo span {
+    color: var(--verde-vibrante);
+}
+
+nav a {
+    color: var(--verde-escuro);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--verde-vibrante);
+    transition: width 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Banner Principal com Movimento de Zoom */
+.banner {
+    background: linear-gradient(rgba(11, 48, 26, 0.6), rgba(11, 48, 26, 0.4)), 
+                url('https://unsplash.com') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
+    text-align: center;
+    color: var(--branco-puro);
+    animation: zoomBackground 20s infinite alternate;
 }
 
-header h1 { 
-    color: #ffffff; 
-    font-size: 3.2rem; 
-    margin-bottom: 1rem; 
-    font-weight: 700;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+@keyframes zoomBackground {
+    0% { background-size: 100%; }
+    100% { background-size: 110%; }
 }
 
-header p { 
-    color: #e2f0d9; /* Verde-broto bem claro e suave */
-    font-size: 1.3rem; 
-    max-width: 600px; 
-    margin: 0 auto; 
+.banner-conteudo h1 {
+    font-size: 54px;
+    margin-bottom: 20px;
+    animation: moverCima 1s ease-out;
 }
 
-/* Container dos Cards */
-.container { 
-    max-width: 1100px; 
-    margin: -4rem auto 4rem auto; 
-    padding: 0 1.5rem; 
-    display: flex; 
-    gap: 2.5rem; 
-    flex-wrap: wrap; 
+.texto-vibrante {
+    color: var(--verde-vibrante);
+    text-shadow: 0 0 10px rgba(0, 204, 102, 0.4);
+}
+
+.btn-scroll {
+    display: inline-block;
+    background-color: var(--verde-vibrante);
+    color: var(--branco-puro);
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 25px;
+    box-shadow: 0 5px 15px rgba(0, 204, 102, 0.4);
+    transition: 0.3s;
+}
+
+.btn-scroll:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 204, 102, 0.6);
+}
+
+/* Seções Gerais */
+.secao {
+    padding: 100px 10%;
     position: relative;
-    z-index: 10;
+    z-index: 2;
 }
 
-/* Estilo dos Cards Técnicos do Agro */
-.card { 
-    background: #ffffff; 
-    flex: 1; 
-    min-width: 300px; 
-    border-radius: 14px; 
-    overflow: hidden; 
-    box-shadow: 0 12px 24px rgba(61, 35, 20, 0.06); /* Sombra em tom de terra */
-    border: 1px solid #eaddca; /* Borda cor de palha fina */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
+.secao-escura {
+    background: var(--terra-gradiente);
+    color: var(--branco-puro);
 }
 
-.card:hover { 
-    transform: translateY(-6px); 
-    box-shadow: 0 18px 36px rgba(61, 35, 20, 0.12);
+.titulo-secao {
+    text-align: center;
+    font-size: 38px;
+    margin-bottom: 50px;
+    color: inherit;
 }
 
-/* Efeito nas Imagens */
-.img-wrapper {
+/* Cards com Movimento na Imagem */
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.card {
+    background-color: var(--branco-puro);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s;
+    color: var(--texto-escuro);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card-img-wrapper {
     overflow: hidden;
     height: 240px;
 }
 
-.card-img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    transition: transform 0.4s ease;
+.card-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
 }
 
-.card:hover .card-img {
-    transform: scale(1.04);
+.card:hover .card-img-wrapper img {
+    transform: scale(1.1) rotate(1deg);
 }
 
-/* Conteúdo interno */
-.card-content { 
-    padding: 2.2rem; 
+.card-info {
+    padding: 25px;
+}
+
+.card-info h3 {
+    margin-bottom: 12px;
+    color: var(--verde-folha);
+}
+
+/* Efeito do Saiba Mais/Curiosidade */
+.btn-saiba-mais {
+    background: transparent;
+    border: 2px solid var(--verde-folha);
+    color: var(--verde-folha);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.btn-saiba-mais:hover {
+    background-color: var(--verde-folha);
+    color: var(--branco-puro);
+}
+
+.curiosidade-oculta {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, margin-top 0.3s;
+    background-color: var(--creme-suave);
+    border-radius: 5px;
+}
+
+.curiosidade-oculta.ativa {
+    max-height: 200px;
+    margin-top: 15px;
+    padding: 15px;
+    border-left: 4px solid var(--verde-vibrante);
+}
+
+/* Problemas e Soluções */
+.container-LinhaTempo {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
+    gap: 30px;
 }
 
-.card p {
-    color: #5c4033; /* Marrom sutil para leitura limpa */
-    font-size: 1rem;
-    margin-bottom: 2rem;
-    flex-grow: 1;
+.linha-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }
 
-/* Card Agro Forte: Cores de Grãos e Colheita */
-.card-agro h2 { 
-    font-size: 1.6rem; 
-    color: #c68a16; /* Amarelo Ouro/Trigo */
-    margin-bottom: 1.2rem; 
-    border-bottom: 2px solid #f9ebd2;
-    padding-bottom: 0.5rem;
+.linha-bloco {
+    padding: 25px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Card Futuro Sustentável: Cores de Plantação e Preservação */
-.card-sustentavel h2 { 
-    font-size: 1.6rem; 
-    color: #2b5329; /* Verde-Folhagem antigo */
-    margin-bottom: 1.2rem; 
-    border-bottom: 2px solid #e2f0d9;
-    padding-bottom: 0.5rem;
+.linha-bloco.problema {
+    border-left: 5px solid #ff4d4d;
 }
 
-/* Botões Estilizados */
-.btn {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 6px;
+.linha-bloco.solucao {
+    border-left: 5px solid var(--verde-vibrante);
+}
+
+/* Nuvem de Palavras-Chave (Movimento de flutuação) */
+.nuvem-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.tag {
+    background: var(--creme-suave);
+    color: var(--verde-folha);
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    animation: flutuar 4s ease-in-out infinite;
+}
+
+/* Ritmos diferentes de flutuação */
+.tag-p { animation-duration: 3s; font-size: 14px; }
+.tag-m { animation-duration: 4.5s; font-size: 18px; color: var(--verde-vibrante); }
+.tag-g { animation-duration: 5s; font-size: 24px; background-color: var(--verde-claro); }
+
+@keyframes flutuar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Rodapé */
+footer {
+    background-color: var(--verde-escuro);
+    color: var(--branco-puro);
     text-align: center;
-    transition: background 0.2s ease, transform 0.1s ease;
+    padding: 40px;
+    font-weight: bold;
 }
-.btn:active { transform: scale(0.98); }
 
-.btn-agro {
-    background-color: #c68a16;
-    color: #ffffff;
+/* Animações de Entrada (Ativadas por JS) */
+.anima-entrada {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
-.btn-agro:hover { background-color: #a37110; }
 
-.btn-sustentavel {
-    background-color: #2b5329;
-    color: #ffffff;
+.anima-entrada.visivel {
+    opacity: 1;
+    transform: translateY(0);
 }
-.btn-sustentavel:hover { background-color: #1e3a1d; }
 
-/* Rodapé em Marrom-Solo Escuro */
-footer { 
-    text-align: center; 
-    padding: 2.5rem; 
-    background-color: #26140a; 
-    color: #eaddca; /* Cor palha para o texto */
-    font-size: 0.95rem; 
+@keyframes moverCima {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsividade Básica */
+@media (max-width: 768px) {
+    .linha-item { grid-template-columns: 1fr; }
+    .banner-conteudo h1 { font-size: 36px; }
+    header { flex-direction: column; gap: 15px; }
 }

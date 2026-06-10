@@ -3,52 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agro Forte & Futuro Sustentável</title>
+    <title>Agrinho - Conexão Viva com a Natureza</title>
+    <!-- Link para o arquivo de estilos -->
     <link rel="stylesheet" href="style.css">
+    <!-- Ícones modernos -->
+    <link rel="stylesheet" href="https://cloudflare.com">
 </head>
 <body>
 
-    <!-- Banner Principal -->
+    <!-- Fundo com textura sutil de folhas aplicada via CSS -->
+    <div class="textura-overlay"></div>
+
+    <!-- Cabeçalho -->
     <header>
-        <div class="header-overlay">
-            <h1>Equilíbrio no Campo</h1>
-            <p>A união necessária entre a força da produção e a conservação ambiental.</p>
-        </div>
+        <div class="logo">🌿 Agrinho<span>Vivo</span></div>
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#curiosidades">Curiosidades</a>
+            <a href="#desafios">Problemas & Soluções</a>
+            <a href="#tags">Palavras-Chave</a>
+        </nav>
     </header>
 
-    <!-- Seção de Conteúdo em Cards -->
-    <div class="container">
-        
-        <!-- CARD 1: AGRO FORTE -->
-        <div class="card card-agro">
-            <div class="img-wrapper">
-                <img class="card-img" src="https://unsplash.com" alt="Maquinário moderno colhendo no campo de grãos">
-            </div>
-            <div class="card-content">
-                <h2>1. Agro Forte (Produção)</h2>
-                <p>Representa a potência do agronegócio, a segurança alimentar e a eficiência econômica. Foca no uso de tecnologia de ponta, maquinários modernos, alta produtividade por hectare e no fortalecimento das exportações para abastecer o mercado global de forma robusta.</p>
-                <a href="#" class="btn btn-agro">Ver Produção</a>
-            </div>
+    <!-- Banner Principal Animado -->
+    <section id="inicio" class="banner">
+        <div class="banner-conteudo">
+            <h1>O Futuro do Agro é <span class="texto-vibrante">Sustentável</span></h1>
+            <p>Descubra como a tecnologia e a preservação ambiental andam de mãos dadas para alimentar o planeta com respeito à terra.</p>
+            <a href="#curiosidades" class="btn-scroll">Explorar Agora</a>
         </div>
+    </section>
 
-        <!-- CARD 2: FUTURO SUSTENTÁVEL -->
-        <div class="card card-sustentavel">
-            <div class="img-wrapper">
-                <img class="card-img" src="https://unsplash.com" alt="Broto verde crescendo no solo cultivado rico">
+    <!-- Seção de Curiosidades (Com efeito "Saiba Mais" via JavaScript) -->
+    <section id="curiosidades" class="secao">
+        <h2 class="titulo-secao">Natureza em Movimento</h2>
+        <div class="grid-cards">
+
+            <!-- Card 1 -->
+            <div class="card anima-entrada">
+                <div class="card-img-wrapper">
+                    <img src="https://unsplash.com" alt="Solo fértil e broto verde">
+                </div>
+                <div class="card-info">
+                    <h3>Tecnologia no Campo</h3>
+                    <p>O agronegócio moderno utiliza satélites e drones para cuidar das plantações sem desperdício.</p>
+                    <button class="btn-saiba-mais" onclick="abrirCuriosidade('curiosidade-1')">Saiba Mais</button>
+                    <div id="curiosidade-1" class="curiosidade-oculta">
+                        <p>💡 <strong>Você sabia?</strong> Drones conseguem identificar folhas doentes antes mesmo que o olho humano perceba, reduzindo o uso de defensivos químicos em até 80%!</p>
+                    </div>
+                </div>
             </div>
-            <div class="card-content">
-                <h2>2. Futuro Sustentável (Preservação)</h2>
-                <p>Representa o compromisso com as próximas gerações e o respeito aos limites da natureza. Foca em práticas como a rotação de culturas, o plantio direto, o uso de bioinsumos, a conservação das fontes de água e a redução das emissões de carbono no campo.</p>
-                <a href="#" class="btn btn-sustentavel">Ver Sustentabilidade</a>
+
+            <!-- Card 2 -->
+            <div class="card anima-entrada">
+                <div class="card-img-wrapper">
+                    <img src="https://unsplash.com" alt="Abelha polinizando flor">
+                </div>
+                <div class="card-info">
+                    <h3>Biodiversidade Viva</h3>
+                    <p>Proteger insetos polinizadores e microrganismos do solo garante a qualidade de tudo o que comemos.</p>
+                    <button class="btn-saiba-mais" onclick="abrirCuriosidade('curiosidade-2')">Saiba Mais</button>
+                    <div id="curiosidade-2" class="curiosidade-oculta">
+                        <p>💡 <strong>Você sabia?</strong> Mais de 70% das culturas agrícolas que alimentam o mundo dependem diretamente da polinização feita pelas abelhas!</p>
+                    </div>
+                </div>
             </div>
+
         </div>
+    </section>
 
-    </div>
+    <!-- Seção de Problemas e Soluções -->
+    <section id="desafios" class="secao secao-escura">
+        <h2 class="titulo-secao">Desafios & Soluções</h2>
+        <div class="container-LinhaTempo">
+
+            <div class="linha-item anima-entrada">
+                <div class="linha-bloco problema">
+                    <h3>❌ O Problema: Desperdício de Água</h3>
+                    <p>A irrigação tradicional e desregulada no campo gasta bilhões de litros de água doce preciosa anualmente, secando rios regionais.</p>
+                </div>
+                <div class="linha-bloco solucao">
+                    <h3>✅ A Solução: Irrigação Gota a Gota</h3>
+                    <p>Sistemas computadorizados gotejam água direto na raiz da planta na quantidade exata, economizando até 60% dos recursos hídricos.</p>
+                </div>
+            </div>
+
+            <div class="linha-item anima-entrada">
+                <div class="linha-bloco problema">
+                    <h3>❌ O Problema: Desgaste do Solo</h3>
+                    <p>Plantar a mesma cultura repetidamente esgota os nutrientes da terra, tornando o solo infértil e dependente de adubos artificiais.</p>
+                </div>
+                <div class="linha-bloco solucao">
+                    <h3>✅ A Solução: Rotação de Culturas</h3>
+                    <p>Alternar o plantio de grãos (como soja e milho) com pastagens ajuda a fixar nutrientes naturalmente, mantendo a terra rica e forte.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Seção de Palavras-Chave (Nuvem de Tags Estilizada) -->
+    <section id="tags" class="secao">
+        <h2 class="titulo-secao">Palavras-Chave do Agro</h2>
+        <div class="nuvem-tags">
+            <span class="tag tag-p">Sustentabilidade</span>
+            <span class="tag tag-m">Preservação</span>
+            <span class="tag tag-g">Agronegócio</span>
+            <span class="tag tag-p">Educação</span>
+            <span class="tag tag-g">Tecnologia</span>
+            <span class="tag tag-m">Ecossistema</span>
+            <span class="tag tag-p">Natureza</span>
+            <span class="tag tag-m">Produtividade</span>
+        </div>
+    </section>
 
     <!-- Rodapé -->
     <footer>
-        <p>&copy; Agro Forte & Futuro Sustentável. Projeto para GitHub Pages.</p>
+        <p>&copy; 2026 Projeto Agrinho - Cultivando Ideias Verdes.</p>
     </footer>
 
+    <!-- Link para o arquivo de interações JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
